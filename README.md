@@ -10,4 +10,4 @@
 *However, if you do not want to go through all these steps, you can go to notebooks/2.0_final_solution_evaluation_and_recommendation.ipynb 
 to see the cells with the outputs mentioned above.
 
-Also, there is no intermediate and external data, as all preprocessing takes low time.
+Also, there is no benchmark/data, intermediate and external data, as all preprocessing takes low time.

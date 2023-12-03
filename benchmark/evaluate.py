@@ -54,7 +54,7 @@ def preproc(train_df, test_df):
 
 
 train_df, test_df = make_dfs()
-train_x, train_y, test_x, test_y = preproc(train_df, test_df)
+train_x, train_y, test_x, test_y = preproc(train_df, test_df)  # preprocess and divide data
 
 test_user_lines = {}  # Getting useful data for recommendation
 test_items = []
@@ -99,16 +99,17 @@ def recommend_10(user_id):  # Since for testing I use ua.test, where each user g
     # exactly 10 ratings, I will recommend user 10 movies based on my predicted ratings
     # of movies
     predictions = [clf.predict(test_x[j, :].reshape(1, -1))[0] for j in test_user_lines[user_id]]
-    real_rating = [test_y[j] for j in test_user_lines[user_id]]
+    real_rating = [test_y[j] for j in test_user_lines[user_id]]  # Ground truth ratings
+
     recommendations = [[test_items[i]] for i in test_user_lines[user_id]]
     for i in range(len(predictions)):
         recommendations[i].append(predictions[i])
-    recommendations.sort(key=lambda x: x[1], reverse=True)
+    recommendations.sort(key=lambda x: x[1], reverse=True)  # Sort movies according to predicted ratings
 
     ideal_recommendations = [[test_items[i]] for i in test_user_lines[user_id]]
     for i in range(len(real_rating)):
         ideal_recommendations[i].append(real_rating[i])
-    ideal_recommendations.sort(key=lambda x: x[1], reverse=True)
+    ideal_recommendations.sort(key=lambda x: x[1], reverse=True)  # Sort movies according to real ratings
 
     print("My recommendations: ", [i[0] for i in recommendations])
     print("Ideal recommendations: ", [i[0] for i in ideal_recommendations])

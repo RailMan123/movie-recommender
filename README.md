@@ -9,3 +9,5 @@
 
 *However, if you do not want to go through all theese steps, you can go to notebooks/2.0_final_solution_evaluation_and_recommendation.ipynb 
 to see the cells with the outputs mentioned above.
+
+Also, there is no itermediate and external data, as all preprocessing taken low time.
